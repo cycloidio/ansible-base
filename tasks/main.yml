@@ -30,6 +30,5 @@
 - group: name=admin state=present
 - user: name=admin group=admin shell=/bin/bash
 
-
-
 - include: hosts.yml
+  tags: hosts

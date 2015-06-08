@@ -1,0 +1,17 @@
+---
+# this is a test for ec2 user-data  
+# local.yml is used for pull-based Ansible setup.
+
+- hosts: localhost
+  connection: local
+  sudo: yes
+
+  vars:
+    access_key: ""
+    secret_key: ""
+
+  roles:
+    - { role: azmelanar.timezone, timezone: Europe/Paris }
+
+  tasks:
+     - include: tasks/main.yml
