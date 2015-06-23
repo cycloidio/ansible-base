@@ -32,6 +32,10 @@
 - group: name=admin state=present
 - user: name=admin group=admin shell=/bin/bash
 
+- name: "Vim config file"
+  copy: src=vimrc
+        dest=/etc/vim/vimrc
+
 - include: hosts.yml
 #  tags: hosts
 
