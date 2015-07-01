@@ -1,0 +1,21 @@
+---
+- locale_gen: name=fr_FR.UTF-8 state=present
+
+- name: Install list of packages
+  apt: pkg={{item}} state=installed
+  with_items:
+    - vim
+    - tmux
+    - htop
+    - unzip
+    - telnet
+    - ntp
+    - python-pip
+
+- name: "Vim config file"
+  copy: src=vimrc
+        dest=/etc/vim/vimrc
+
+- group: name=admin state=present
+- user: name=admin group=admin shell=/bin/bash
+

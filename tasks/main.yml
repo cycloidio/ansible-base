@@ -1,41 +1,12 @@
 ---
 # tasks file for base
 
-- locale_gen: name=fr_FR.UTF-8 state=present
+- include: deps.yml
+  tags: deps
 
-- name: Install list of packages
-  apt: pkg={{item}} state=installed
-  with_items:
-    - vim
-    - tmux
-    - htop
-    - unzip
-    - telnet
-    - ntp
-    - python-pip
-
-- pip: name=awscli
-
-- name: Assures /root/.aws dir exists
-  file: path=/root/.aws state=directory
-
-- name: Configure AWS backup credential
-  template: src=files/aws-credential.j2
-            dest=/root/.aws/credentials
-            owner=root group=root mode=0600
-
-- name: Configure AWS backup config
-  template: src=files/aws-config.j2
-            dest=/root/.aws/config
-            owner=root group=root mode=0600
-
-- group: name=admin state=present
-- user: name=admin group=admin shell=/bin/bash
-
-- name: "Vim config file"
-  copy: src=vimrc
-        dest=/etc/vim/vimrc
+- include: aws-cli.yml
+  tags: aws-cli
 
 - include: hosts.yml
-#  tags: hosts
+  tags: hosts
 

@@ -1,0 +1,15 @@
+---
+- pip: name=awscli
+
+- name: Assures /root/.aws dir exists
+  file: path=/root/.aws state=directory
+
+- name: Configure AWS backup credential
+  template: src=files/aws-credential.j2
+            dest=/root/.aws/credentials
+            owner=root group=root mode=0600
+
+- name: Configure AWS backup config
+  template: src=files/aws-config.j2
+            dest=/root/.aws/config
+            owner=root group=root mode=0600
