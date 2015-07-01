@@ -84,6 +84,12 @@ au BufNewFile,BufRead *.fan,*.fwt setf fan
 " web
 au BufNewFile,BufRead *.jade,*.html,*.css,*.js,*.styl set sw=2
 
+" ops
+
+au BufNewFile,BufRead *.yml set sw=2
+au BufNewFile,BufRead *.jinja,*.sls setf jinja
+
+
 " nextgen language
 au BufNewFile,BufRead *.scala,*.sbt,*.clj set sw=2
 au BufNewFile,BufRead *.sbt setf scala
