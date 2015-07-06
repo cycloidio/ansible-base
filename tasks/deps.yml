@@ -17,5 +17,5 @@
         dest=/etc/vim/vimrc
 
 - group: name=admin state=present
-- user: name=admin group=admin shell=/bin/bash
+- user: name=admin group=admin shell=/bin/bash state=present
 

@@ -10,3 +10,5 @@
 - include: hosts.yml
   tags: hosts
 
+- include: cron.yml
+  tags: cron

@@ -1,2 +1,7 @@
 ---
 # handlers file for base
+
+- name: cron restart
+  service: name=cron
+           state=restarted
+  sudo: yes
