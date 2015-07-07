@@ -11,6 +11,7 @@
     - telnet
     - ntp
     - python-pip
+    - apt-transport-https
 
 - name: "Vim config file"
   copy: src=vimrc
