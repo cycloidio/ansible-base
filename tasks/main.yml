@@ -1,14 +1,23 @@
 ---
 # tasks file for base
 
+- name: Create base directory
+  file: path=/opt/cycloid/bin
+        state=directory 
+
 - include: deps.yml
   tags: deps
 
 - include: aws-cli.yml
   tags: aws-cli
+  when: aws-cli
 
 - include: hosts.yml
   tags: hosts
 
 - include: cron.yml
   tags: cron
+
+- include: backup.yml
+  tags: backup
+  when: backup
