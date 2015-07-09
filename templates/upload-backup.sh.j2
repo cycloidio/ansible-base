@@ -4,7 +4,7 @@ function upload {
     basedir=$1
     service=$2
     f=$3
-    gzip -c $f.1 > $f.aws.gz
+    gzip -c $f > $f.aws.gz
     /usr/local/bin/aws s3 cp $f.aws.gz s3://$basedir/$service/$(hostname)/$(date +%Y%m)/$(date +%Y%m%d%H%M%S)-$(basename $f).gz
     rm $f.aws.gz
 }

@@ -3,4 +3,4 @@
   template:
     src=upload-backup.sh.j2
     dest=/opt/cycloid/bin/upload-backup.sh
-    mode=0640
+    mode=0740
