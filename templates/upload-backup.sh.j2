@@ -4,9 +4,10 @@ function upload {
     basedir=$1
     service=$2
     f=$3
-    gzip -c $f > $f.aws.gz
-    /usr/local/bin/aws s3 cp $f.aws.gz s3://$basedir/$service/$(hostname)/$(date +%Y%m)/$(date +%Y%m%d%H%M%S)-$(basename $f).gz
-    rm $f.aws.gz
+
+    tar -cvf $f.aws.tar $f
+    /usr/local/bin/aws s3 cp $f.aws.tar s3://$basedir/$service/$(hostname)/$(date +%Y%m)/$(date +%Y%m%d%H%M%S)-$(basename $f).tar
+    rm $f.aws.tar
 }
 
 upload $@
