@@ -1,10 +1,6 @@
 ---
 # tasks file for base
 
-- name: Create base directory
-  file: path=/opt/cycloid/bin
-        state=directory 
-
 - include: deps.yml
   tags: deps
 

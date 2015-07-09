@@ -1,6 +1,10 @@
 ---
 - locale_gen: name=fr_FR.UTF-8 state=present
 
+- name: Create base directory
+  file: path=/opt/cycloid/bin
+        state=directory
+
 - name: Install list of packages
   apt: pkg={{item}} state=installed
   with_items:
