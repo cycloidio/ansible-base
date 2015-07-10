@@ -6,7 +6,7 @@
         state=directory
 
 - name: Install list of packages
-  apt: pkg={{item}} state=installed
+  apt: pkg={{item}} state=installed update_cache=yes
   with_items:
     - vim
     - tmux
