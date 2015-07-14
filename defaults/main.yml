@@ -4,3 +4,7 @@ cron_file: null
 crons: []
 backup: true
 aws-cli: true
+hosts: false
+deps: true
+custom_hosts: {}
+

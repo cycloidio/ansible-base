@@ -3,6 +3,7 @@
 
 - include: deps.yml
   tags: deps
+  when: deps
 
 - include: aws-cli.yml
   tags: aws-cli
@@ -10,6 +11,7 @@
 
 - include: hosts.yml
   tags: hosts
+  when: hosts
 
 - include: cron.yml
   tags: cron
