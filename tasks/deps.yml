@@ -16,6 +16,7 @@
     - ntp
     - python-pip
     - apt-transport-https
+    - lsof
 
 - name: "Vim config file"
   copy: src=vimrc
