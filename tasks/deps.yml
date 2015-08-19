@@ -8,6 +8,7 @@
 - name: Install list of packages
   apt: pkg={{item}} state=installed update_cache=yes
   with_items:
+    - git-core
     - vim
     - tmux
     - htop
