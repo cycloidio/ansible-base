@@ -13,16 +13,3 @@
   template: src=files/aws-config.j2
             dest=/root/.aws/config
             owner=root group=root mode=0600
-
-- name: Assures /home/admin/.aws dir exists
-  file: path=/home/admin/.aws state=directory owner=admin group=admin
-
-- name: Configure AWS backup credential
-  template: src=files/aws-credential.j2
-            dest=/home/admin/.aws/credentials
-            owner=admin group=admin mode=0600
-
-- name: Configure AWS backup config
-  template: src=files/aws-config.j2
-            dest=/home/admin/.aws/config
-            owner=admin group=admin mode=0600
