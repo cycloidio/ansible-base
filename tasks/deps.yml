@@ -1,6 +1,4 @@
 ---
-- locale_gen: name=fr_FR.UTF-8 state=present
-
 - name: Create base directory
   file: path=/opt/cycloid/bin
         state=directory
@@ -16,8 +14,11 @@
     - telnet
     - ntp
     - python-pip
+    - locales
     - apt-transport-https
     - lsof
+
+- locale_gen: name=fr_FR.UTF-8 state=present
 
 - name: "Vim config file"
   copy: src=vimrc
