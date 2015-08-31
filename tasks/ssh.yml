@@ -1,0 +1,12 @@
+---
+- name: Ensure the existence of .ssh directory for admin
+  file: path=/home/admin/.ssh state=directory mode=0700 owner=admin group=admin
+  tags:
+    - ssh
+
+- name: Install admin public key in authorized_keys
+  authorized_key: user=admin key="{{ lookup('file', item) }}" state=present
+  with_fileglob:
+    - ssh/ssh_id_rsa.pub
+  tags:
+    - ssh

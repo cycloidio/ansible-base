@@ -5,6 +5,10 @@
   tags: deps
   when: deps
 
+- include: ssh.yml
+  tags: ssh
+  when: ssh
+
 - include: aws-cli.yml
   tags: aws-cli
   when: aws-cli

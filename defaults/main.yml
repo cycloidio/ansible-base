@@ -6,5 +6,5 @@ backup: true
 aws-cli: true
 hosts: false
 deps: true
+ssh: true
 custom_hosts: {}
-
