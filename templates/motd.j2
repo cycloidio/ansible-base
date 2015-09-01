@@ -1,0 +1,9 @@
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+      FQDN: {{ ansible_fqdn }}
+        HW: {{ ansible_processor_count }} x {{ ansible_processor[1] }} | {{ ansible_memtotal_mb }}MB Memory
+  CUSTOMER: {{ ec2_tag_client }}
+   PROJECT: {{ ec2_tag_project }}
+       ENV: {{ env }}
+  FUNCTION: {{ ec2_tag_role }}
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+

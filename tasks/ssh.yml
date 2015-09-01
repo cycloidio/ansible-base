@@ -10,3 +10,11 @@
     - ssh/ssh_id_rsa.pub
   tags:
     - ssh
+
+- name: Creating motd
+  template:
+      src=motd.j2
+      dest=/etc/motd
+      mode=0644
+  tags:
+      - ssh
