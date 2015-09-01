@@ -16,5 +16,7 @@
       src=motd.j2
       dest=/etc/motd
       mode=0644
+  ignore_errors: yes
   tags:
       - ssh
+      - motd
