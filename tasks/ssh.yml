@@ -17,6 +17,7 @@
       dest=/etc/motd
       mode=0644
   ignore_errors: yes
+  when: ec2_tag_client is defined and ec2_tag_project is defined and ec2_tag_role is defined
   tags:
       - ssh
       - motd
