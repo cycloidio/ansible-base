@@ -26,16 +26,20 @@
     - vim
     - tmux
     - htop
-    - unzip
     - telnet
     - ntp
     - python-pip
     - lsof
+    - xfsprogs
+    - lvm2
+    - unzip
+    - ed
+    - libselinux-python
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - locale_gen: name=fr_FR.UTF-8 state=present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  
+
 - name: "Vim config file"
   copy: src=vimrc
         dest=/etc/vim/vimrc
