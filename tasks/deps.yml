@@ -3,7 +3,7 @@
   file: path=/opt/cycloid/bin
         state=directory
 
-- name: Install list of packages
+- name: Debian | Install list of packages
   apt: pkg={{item}} state=installed update_cache=yes
   with_items:
     - git-core
@@ -17,12 +17,33 @@
     - locales
     - apt-transport-https
     - lsof
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Centos | Install list of packages
+  yum: pkg={{item}} state=installed update_cache=yes
+  with_items:
+    - git
+    - vim
+    - tmux
+    - htop
+    - unzip
+    - telnet
+    - ntp
+    - python-pip
+    - lsof
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - locale_gen: name=fr_FR.UTF-8 state=present
 
 - name: "Vim config file"
   copy: src=vimrc
         dest=/etc/vim/vimrc
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: "Vim config file"
+  copy: src=vimrc
+        dest=/etc/vimrc
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - group: name=admin state=present
 - user: name=admin group=admin shell=/bin/bash state=present
