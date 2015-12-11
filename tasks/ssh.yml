@@ -8,6 +8,7 @@
   authorized_key: user=admin key="{{ lookup('file', item) }}" state=present
   with_fileglob:
     - ssh/ssh_id_rsa.pub
+    - ssh/ssh_root_key.pub
   tags:
     - ssh
 
