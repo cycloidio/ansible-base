@@ -17,6 +17,7 @@
     - locales
     - apt-transport-https
     - lsof
+    - curl
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Centos | Install list of packages
