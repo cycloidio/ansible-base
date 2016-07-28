@@ -4,6 +4,20 @@
   tags:
     - ssh
 
+- name: Ensure custom prompt (color/git) for .bashrc
+  copy:
+    src: bashrc_custom_prompt
+    dest: /home/admin/.bashrc_custom_prompt
+    mode: 0640
+    owner: admin
+    group: admin
+
+- name: Add in bashrc sourcing of custom prompt
+  lineinfile:
+    dest: /home/admin/.bashrc
+    regexp: "^. ~/.bashrc_custom_prompt 2>/dev/null"
+    line: ". ~/.bashrc_custom_prompt 2>/dev/null"
+
 - name: Install admin public key in authorized_keys
   authorized_key: user=admin key="{{ lookup('file', item) }}" state=present
   with_fileglob:
