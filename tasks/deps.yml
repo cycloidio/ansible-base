@@ -61,3 +61,20 @@
 - group: name=admin state=present
 - user: name=admin group=admin shell=/bin/bash state=present
 
+- name: Debian | Install extra list of packages
+  apt: pkg={{item}} state=installed update_cache=yes
+  with_items:
+    - "{{ extra_packages }}"
+  when: extra_packages|length > 0 and (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
+
+- name: Centos | Install extra list of packages
+  yum: pkg={{item}} state=installed update_cache=yes
+  with_items:
+    - "{{ extra_packages }}"
+  when: extra_packages|length > 0 and (ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux')
+
+- name: Install extra list of pip packages
+  pip: name={{item}} state=present
+  with_items:
+    - "{{ extra_pip_packages }}"
+  when: extra_pip_packages|length > 0
