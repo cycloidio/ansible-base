@@ -8,3 +8,5 @@ hosts: false
 deps: true
 ssh: true
 custom_hosts: {}
+extra_packages: []
+extra_pip_packages: []
