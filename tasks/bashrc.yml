@@ -1,0 +1,30 @@
+---
+- name: Ensure the existence of /etc/bashrc.d directory
+  file:
+     path: /etc/bashrc.d
+     state: directory
+     mode: 0755
+     owner: root
+     group: root
+
+- name: Insert/update source /etc/bashrc.d/* in bash.bashrc
+  blockinfile:
+    dest: /etc/bash.bashrc
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {mark} Cycloid bashrc.d #"
+    content: |
+      if [ -d /etc/bashrc.d ]; then
+        for i in /etc/bashrc.d/*.sh; do
+          if [ -r $i ]; then
+            . $i
+          fi
+        done
+        unset i
+      fi
+
+- name: Ensure custom history for bashrc
+  template:
+    src: bashrc.d/history.sh.j2
+    dest: /etc/bashrc.d/history.sh
+    mode: 0755
+    owner: root
+    group: root

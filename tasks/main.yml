@@ -9,6 +9,9 @@
   tags: ssh
   when: ssh
 
+- include: bashrc.yml
+  tags: bashrc
+
 - include: aws-cli.yml
   tags: aws-cli
   when: aws-cli
