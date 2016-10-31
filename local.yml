@@ -4,7 +4,7 @@
 
 - hosts: localhost
   connection: local
-  sudo: yes
+  become: yes
 
   vars:
     access_key: ""
