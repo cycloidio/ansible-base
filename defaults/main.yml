@@ -12,6 +12,9 @@ awscli_credentials:
     group: admin
     path: "/home/admin/.aws"
 aws_additonal_credentials: []
+aws_additonal_configs:
+  - name: default
+    configs: {}
 hosts: false
 deps: true
 ssh: true

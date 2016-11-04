@@ -27,7 +27,7 @@ awscli_credentials:
     path: "/home/admin/.aws"
 ```
 
-aws credentials file contains be default only the [default] section. If you need to add more:
+aws credentials file contains by default only the [default] section. If you need to add more:
 ```
 aws_additonal_credentials:
   - name: fooenv
@@ -36,6 +36,16 @@ aws_additonal_credentials:
   - name: blaenv
     access_key: accesskey2
     secret_key: secret2
+```
+
+aws configs file contains by default only the [default] section. If you need to add more:
+```
+aws_additonal_configs:
+  - name: default
+    configs: {}
+  - name: fooenv
+    configs:
+      region: eu-west-1
 ```
 
 Dependencies

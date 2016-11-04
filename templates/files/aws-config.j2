@@ -1,1 +1,7 @@
-[default]
+{%- for section in aws_additonal_configs  %}
+
+[profile {{section.name}}]
+{% for k, v in section.configs.items()  %}
+{{ k }} = {{ v }}
+{% endfor %}
+{% endfor %}
