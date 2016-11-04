@@ -43,10 +43,12 @@ aws configs file contains by default only the [default] section. If you need to 
 aws_additonal_configs:
   - name: default
     configs: {}
-  - name: fooenv
+  - name: profile fooenv
     configs:
       region: eu-west-1
 ```
+
+/!\ Don't forget the "profile" in the name.
 
 Dependencies
 ------------
