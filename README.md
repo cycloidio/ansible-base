@@ -13,6 +13,31 @@ Role Variables
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
+
+#Aws CLI
+
+By default awscli is configured for root and admin users only:
+```
+awscli_credentials:
+  - user: root
+    group: root
+    path: "/root/.aws"
+  - user: admin
+    group: admin
+    path: "/home/admin/.aws"
+```
+
+aws credentials file contains be default only the [default] section. If you need to add more:
+```
+aws_additonal_credentials:
+  - name: fooenv
+    access_key: accesskey1
+    secret_key: secret1
+  - name: blaenv
+    access_key: accesskey2
+    secret_key: secret2
+```
+
 Dependencies
 ------------
 

@@ -4,6 +4,14 @@ cron_file: null
 crons: []
 backup: true
 aws-cli: true
+awscli_credentials:
+  - user: root
+    group: root
+    path: "/root/.aws"
+  - user: admin
+    group: admin
+    path: "/home/admin/.aws"
+aws_additonal_credentials: []
 hosts: false
 deps: true
 ssh: true
