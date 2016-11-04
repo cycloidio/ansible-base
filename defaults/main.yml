@@ -4,6 +4,7 @@ cron_file: null
 crons: []
 backup: true
 aws-cli: true
+awscli_credentials_path: "/root/.aws"
 hosts: false
 deps: true
 ssh: true
