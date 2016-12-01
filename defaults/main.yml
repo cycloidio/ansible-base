@@ -21,3 +21,5 @@ ssh: true
 custom_hosts: {}
 extra_packages: []
 extra_pip_packages: []
+bash_history_size: -1
+bash_history_file_size: -1

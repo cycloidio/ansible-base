@@ -1,5 +1,5 @@
 # {{ ansible_managed }}
 
 export HISTTIMEFORMAT="[ %d/%m/%Y - %H:%M:%S ] # "
-export HISTSIZE=-1
-export HISTFILESIZE=-1
+export HISTSIZE={{ bash_history_size }}
+export HISTFILESIZE={{ bash_history_file_size }}
