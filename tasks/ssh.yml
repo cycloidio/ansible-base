@@ -18,6 +18,15 @@
     regexp: "^. ~/.bashrc_custom_prompt 2>/dev/null"
     line: ". ~/.bashrc_custom_prompt 2>/dev/null"
 
+- name: Make sure history size is not localy declared in .bashrc
+  lineinfile:
+    dest: /home/admin/.bashrc
+    regexp: "^{{ item }}.*"
+    line: "#{{ item }}"
+  with_items:
+     - "HISTSIZE="
+     - "HISTFILESIZE="
+
 - name: Install admin public key in authorized_keys
   authorized_key: user=admin key="{{ lookup('file', item) }}" state=present
   with_fileglob:
