@@ -4,7 +4,6 @@ cron_file: null
 crons: []
 backup: true
 aws-cli: true
-awscli_credentials: []
 aws_additonal_credentials: []
 aws_additonal_configs:
   - name: default
