@@ -22,7 +22,7 @@
   lineinfile:
     dest: /home/admin/.bashrc
     regexp: "^{{ item }}.*"
-    line: "#{{ item }}"
+    state: absent
   with_items:
      - "HISTSIZE="
      - "HISTFILESIZE="
