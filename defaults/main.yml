@@ -1,7 +1,5 @@
 ---
 # defaults file for base
-cron_file: null
-crons: []
 backup: true
 aws-cli: true
 aws_additonal_credentials: []

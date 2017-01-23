@@ -20,7 +20,7 @@
   tags: hosts
   when: hosts
 
-- include: cron.yml
+- include: cronlock.yml
   tags: cron
 
 - include: backup.yml
