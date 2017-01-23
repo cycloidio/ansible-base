@@ -1,14 +1,2 @@
 ---
 # handlers file for base
-
-- name: cron restart
-  service: name=cron
-           state=restarted
-  become: yes
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-- name: crond restart
-  service: name=crond
-           state=restarted
-  become: yes
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
