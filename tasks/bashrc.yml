@@ -8,12 +8,12 @@
      group: root
 
 - name: Ensure the existence of /etc/bash.bashrc file
-  file:
-     path: /etc/bash.bashrc
-     state: file
-     mode: 0644
+  copy:
+     content: ""
+     dest: /etc/bash.bashrc
      owner: root
      group: root
+     mode: 0644
 
 - name: Insert/update source /etc/bashrc.d/* in bash.bashrc
   blockinfile:
