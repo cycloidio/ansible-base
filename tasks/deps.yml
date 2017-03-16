@@ -6,6 +6,8 @@
 - name: Debian | Install list of packages
   apt: pkg={{item}} state=installed update_cache=yes
   with_items:
+    - rsync
+    - tar
     - git-core
     - vim
     - tmux

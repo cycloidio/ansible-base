@@ -1,10 +1,11 @@
 ---
 - name: Create base directory
-  file: path=/home/admin/backups
-        state=directory
+  file:
+    path: /home/admin/backups
+    state: directory
 
 - name: copy upload-backup script
   template:
-    src=upload-backup.sh.j2
-    dest=/opt/cycloid/bin/upload-backup.sh
-    mode=0740
+    src: upload-backup.sh.j2
+    dest: /opt/cycloid/bin/upload-backup.sh
+    mode: 0740
