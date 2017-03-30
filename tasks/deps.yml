@@ -35,16 +35,21 @@
     - git
     - vim
     - tmux
-    - htop
     - telnet
     - ntp
-    - python-pip
     - lsof
     - xfsprogs
     - lvm2
     - unzip
     - ed
     - libselinux-python
+    - python-setuptools
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
+
+- name: Centos | Install pip via easy_install
+  easy_install:
+    name: pip
+    state: latest
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
 
 - locale_gen: name=fr_FR.UTF-8 state=present
