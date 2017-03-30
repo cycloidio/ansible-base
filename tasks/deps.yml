@@ -45,7 +45,7 @@
     - unzip
     - ed
     - libselinux-python
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
 
 - locale_gen: name=fr_FR.UTF-8 state=present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
@@ -58,7 +58,7 @@
 - name: "Vim config file"
   copy: src=vimrc
         dest=/etc/vimrc
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
 
 - group: name=admin state=present
 - user: name=admin group=admin shell=/bin/bash state=present
@@ -73,7 +73,7 @@
   yum: pkg={{item}} state=installed update_cache=yes
   with_items:
     - "{{ extra_packages }}"
-  when: extra_packages|length > 0 and (ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux')
+  when: extra_packages|length > 0 and (ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat')
 
 - name: Install extra list of pip packages
   pip: name={{item}} state=present
