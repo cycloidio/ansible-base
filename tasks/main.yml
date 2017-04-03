@@ -14,7 +14,7 @@
 
 - include: aws-cli.yml
   tags: aws-cli
-  when: aws-cli
+  when: awscli
 
 - include: hosts.yml
   tags: hosts

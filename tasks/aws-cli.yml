@@ -1,3 +1,5 @@
 ---
-- pip: name=awscli
+- name: Install awscli
+  pip:
+    name: awscli
 

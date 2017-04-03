@@ -1,7 +1,7 @@
 ---
 # defaults file for base
 backup: true
-aws-cli: true
+awscli: true
 aws_additonal_credentials: []
 aws_additonal_configs:
   - name: default
