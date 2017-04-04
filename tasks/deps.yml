@@ -21,6 +21,7 @@
     - lsof
     - curl
     - zip
+    - nfs-common
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Debian 8 | Install list of packages
@@ -44,6 +45,7 @@
     - ed
     - libselinux-python
     - python-setuptools
+    - nfs-utils
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
 
 - name: Centos | Install pip via easy_install
