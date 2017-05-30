@@ -10,6 +10,7 @@
     - tar
     - git-core
     - vim
+    - jq
     - tmux
     - htop
     - unzip
@@ -35,6 +36,7 @@
   with_items:
     - git
     - vim
+    - jq
     - tmux
     - telnet
     - ntp
