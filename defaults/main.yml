@@ -7,6 +7,7 @@ aws_additonal_configs:
   - name: default
     configs: {}
 hosts: false
+hosts_suffix: ""
 deps: true
 ssh: true
 custom_hosts: {}
