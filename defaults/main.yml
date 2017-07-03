@@ -8,6 +8,8 @@ aws_additonal_configs:
     configs: {}
 hosts: false
 hosts_suffix: ""
+manage_host_file: true
+manage_host_r53: true
 deps: true
 ssh: true
 custom_hosts: {}
