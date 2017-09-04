@@ -69,7 +69,7 @@
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
 
 - group: name=admin state=present
-- user: name=admin group=admin shell=/bin/bash state=present
+- user: name=admin group=admin shell=/bin/bash state=present skeleton=/etc/skel
 
 - name: Debian | Install extra list of packages
   apt: pkg={{item}} state=installed update_cache=yes
