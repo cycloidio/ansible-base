@@ -23,6 +23,7 @@
     - curl
     - zip
     - nfs-common
+    - acl
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Debian 8 | Install list of packages
