@@ -1,6 +1,10 @@
 ---
 # tasks file for base
 
+- include: jessie-fix.yml
+  tags: jessie-fix
+  when: ansible_os_family == "Debian" and ansible_distribution_release == "jessie"
+
 - include: deps.yml
   tags: deps
   when: deps
