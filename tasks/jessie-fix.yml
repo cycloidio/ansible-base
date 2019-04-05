@@ -8,20 +8,26 @@
     owner: root
     group: root
 
-- name: Replace cloudfront jessie-backports repository with archive jessie-backports
-  lineinefile:
+- name: Check if backports.list exists
+  stat:
     path: /etc/apt/sources.list.d/backports.list
-    regexp: '^(.*)cloudfront.debian.net/debian jessie-backports(.*)$'
-    line: '\1archive.debian.org/debian jessie-backports\2'
-    backrefs: yes
-  register: apt_archive_jessie_backports 
+  register: cloudfront_backports_file
 
-- name: Bypass archive jessie-backports Release expiration
-  copy:
-    content: 'Acquire::Check-Valid-Until "false";'
-    dest: '/etc/apt/apt.conf.d/99cycloid-ansible-base-check-valid-until'
-    mode: 0644
-    owner: root
-    group: root
-  when: apt_archive_jessie_backports.changed
+- block:
+    - name: Replace cloudfront jessie-backports repository with archive jessie-backports
+      lineinfile:
+        path: /etc/apt/sources.list.d/backports.list
+        regexp: '^(.*)cloudfront.debian.net/debian jessie-backports(.*)$'
+        line: '\1archive.debian.org/debian jessie-backports\2'
+        backrefs: yes
+      register: apt_archive_jessie_backports
 
+    - name: Bypass archive jessie-backports Release expiration
+      copy:
+        content: 'Acquire::Check-Valid-Until "false";'
+        dest: '/etc/apt/apt.conf.d/99cycloid-ansible-base-check-valid-until'
+        mode: 0644
+        owner: root
+        group: root
+      when: apt_archive_jessie_backports.changed
+  when: cloudfront_backports_file.stat.exists
