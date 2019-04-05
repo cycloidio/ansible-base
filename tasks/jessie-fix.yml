@@ -15,11 +15,10 @@
 
 - block:
     - name: Replace cloudfront jessie-backports repository with archive jessie-backports
-      lineinfile:
+      replace:
         path: /etc/apt/sources.list.d/backports.list
         regexp: '^(.*)cloudfront.debian.net/debian jessie-backports(.*)$'
-        line: '\1archive.debian.org/debian jessie-backports\2'
-        backrefs: yes
+        replace: '\1archive.debian.org/debian jessie-backports\2'
       register: apt_archive_jessie_backports
 
     - name: Bypass archive jessie-backports Release expiration
